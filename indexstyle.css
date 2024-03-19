@@ -1,0 +1,97 @@
+:root {
+    --white: rgb(255, 255, 255); 
+  }
+  
+  * {
+    margin: 0 ;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    outline: none;
+    border: none;
+    text-decoration: none;
+    text-transform: capitalize;
+    transition: .2s linear;
+  }
+  
+  html {
+    font-size: 65%;
+    scroll-behavior: smooth;
+    scroll-padding-top: 6rem ;
+    overflow-x: hidden;
+  }
+  
+  header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    background: rgba(20, 130, 170, 0.80);
+    padding: 2rem 10%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    z-index: 1000;
+    box-shadow: 0 .5rem 1rem rgb(255, 224, 224);
+  }
+  
+  header .logo {
+    font-size: 2rem;
+    color: rgb(0, 3, 46);
+    font-weight: bolder;
+    margin-left: 1rem; /* Added margin to push it to the left */
+  }
+  
+  header .logo span {
+    color: var(--white);
+  }
+  
+  nav {
+    display: flex;
+  }
+  
+  nav a {
+    margin-right: 2rem; /* Adjusting the gap between navbar links */
+    color: black; /* Keeping the color consistent */
+    font-size: 1.6rem; /* Adjusting font size */
+    font-weight: bold; /* Making font weight bold */
+  }
+  
+  nav a:hover {
+    color: var(--white);
+  }
+  
+  .hero {
+    background-image: url('Food and Taste (1).jpg'); /* Replace 'your-image.jpg' with the path to your background image */
+    background-size: cover;
+    background-position: center;
+    height: 130vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+  }
+  
+  .tagline {
+      position: absolute;
+      top: 35%;
+      left: 50%;
+      transform: translateX(-50%);
+      color: rgb(255, 255, 255);
+      font-size: 7rem;
+      font-family: 'Rubik, Glitch' sans-serif;
+      text-align: center;
+      text-shadow: 2px 2px 4px rgb(19, 62, 122); /* Adding a shadow for better visibility */
+    }
+    .button {
+      position: absolute;
+      top: 80%;
+      left: 50%;
+      transform: translateX(-50%);
+      color: rgb(6, 49, 166);
+      font-size: 7rem;
+      font-family: 'Rubik, Glitch' sans-serif;
+      text-align: center;
+      text-shadow: 2px 2px 4px rgb(19, 62, 122); /* Adding a shadow for better visibility */
+
+    }

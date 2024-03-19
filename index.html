@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TDEE Calculator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+        form {
+            max-width: 400px;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+            color: #333;
+        }
+        input[type="number"], select, input[type="checkbox"] {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+        button {
+            width: 100%;
+            background-color: #4caf50;
+            color: white;
+            padding: 14px 20px;
+            margin: 8px 0;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        #result {
+            margin-top: 10px;
+            font-weight: bold;
+            text-align: center;
+        }
+        #receipt {
+            margin-top: 20px;
+            border: 1px solid #ccc;
+            padding: 10px;
+            border-radius: 4px;
+            background-color: #f9f9f9;
+        }
+        #proceedButton {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <h1>TDEE Calculator</h1>
+    <form id="tdeeForm">
+        <label for="weight">Weight (kg):</label>
+        <input type="number" id="weight" required><br>
+        <label for="height">Height (cm):</label>
+        <input type="number" id="height" required><br>
+        <label for="age">Age (years):</label>
+        <input type="number" id="age" required><br>
+        <label for="gender">Gender:</label>
+        <select id="gender">
+            <option value="male">Male</option>
+            <option value="female">Female</option>
+        </select><br>
+        <label>Reasons for Using Calculator:</label>
+        <label><input type="checkbox" id="obese" name="reason" value="Obese">Obese</label><br>
+        <label><input type="checkbox" id="lookFit" name="reason" value="Look Fit">To Look Fit</label><br>
+        <label><input type="checkbox" id="others" name="reason" value="Others">Others</label><br>
+        <button type="button" onclick="calculateTDEE()">Calculate</button>
+    </form>
+    <div id="result"></div>
+    <div id="receipt" style="display:none;"></div>
+    <button id = "proceedButton">
+        <a href="page7.html">Proceed to next step</a>
+    </button>
+
+    <script>
+        function calculateTDEE() {
+            const weight = parseFloat(document.getElementById('weight').value);
+            const height = parseFloat(document.getElementById('height').value);
+            const age = parseFloat(document.getElementById('age').value);
+            const gender = document.getElementById('gender').value;
+            const reasons = [];
+            const checkboxes = document.querySelectorAll('input[name="reason"]:checked');
+            checkboxes.forEach((checkbox) => {
+                reasons.push(checkbox.value);
+            });
+
+            if (isNaN(weight) || isNaN(height) || isNaN(age)) {
+                alert("Please enter valid numerical values for weight, height, and age.");
+                return;
+            }
+
+            if (reasons.length === 0) {
+                alert("Please select at least one reason.");
+                return;
+            }
+
+            let bmr;
+
+            if (gender === 'male') {
+                bmr = 10 * weight + 6.25 * height - 5 * age + 5;
+            } else {
+                bmr = 10 * weight + 6.25 * height - 5 * age - 161;
+            }
+
+            const tdee = bmr;
+            const resultElement = document.getElementById('result');
+            resultElement.textContent = `Your Total Daily Energy Expenditure (TDEE) is approximately ${tdee.toFixed(2)} calories per day.`;
+
+            const receiptElement = document.getElementById('receipt');
+            receiptElement.style.display = 'block';
+            const idealWeight = calculateIdealWeight(height, gender);
+            receiptElement.innerHTML = `
+                <h2>Receipt</h2>
+                <p><strong>Weight:</strong> ${weight} kg</p>
+                <p><strong>Height:</strong> ${height} cm</p>
+                <p><strong>Age:</strong> ${age} years</p>
+                <p><strong>Gender:</strong> ${gender}</p>
+                <p><strong>Reasons:</strong> ${reasons.join(', ')}</p>
+                <p><strong>TDEE:</strong> ${tdee.toFixed(2)} calories/day</p>
+                <p><strong>Ideal Weight:</strong> ${idealWeight.toFixed(2)} kg</p>
+            `;
+
+            const proceedButton = document.getElementById('proceedButton');
+            proceedButton.style.display = 'block';
+        }
+
+        function calculateIdealWeight(height, gender) {
+            // BMI formula: Ideal weight (kg) = 22 * (height in meters)^2
+            const heightInMeters = height / 100; // Convert height from cm to meters
+            return 22 * Math.pow(heightInMeters, 2);
+        }
+
+        function proceedToNextStep() {
+            // Add your code to proceed to the next step here
+            alert("Proceeding to next step...");
+        }
+    </script>
+</body>
+</html>

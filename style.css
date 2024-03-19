@@ -1,0 +1,88 @@
+/* style.css */
+
+/* Reset default browser styles */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+  
+  /* Set a nice background color */
+  body {
+    font-family: Arial, sans-serif;
+    background-color: #f8f9fa;
+  }
+  
+  #header {
+    background-image: url("image/395341383_122101129430090652_3750794800876894708_n-removebg.png"); /* Set the image as background for the entire header */
+    background-size: 15% ;/* Adjust image size to cover the entire header */
+    background-repeat: no-repeat;
+    background-position: right;
+    color: #000000;
+    padding: 30px;
+    font-weight: bold;
+    text-align: left;
+    background-color: rgba(68, 90, 112, 0.5); /* Set background color with transparency */
+  }
+  
+  
+  /* Calculator container styling */
+  #calculator {
+    background-image: url("image/pngtree-gym-logo-png-image_1824195-removebg-preview.png");
+    background-size: cover;
+    width: 100%;
+    max-width: 600px;
+    margin: 20px auto;
+    padding: 30px;
+    background-color: #fff;
+    border: 1px solid #dee2e6;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Calculator title styling */
+  #calculator h2 {
+    margin-bottom: 20px;
+    color: #343a40;
+    text-align: center;
+  }
+  
+  /* Label styling */
+  label {
+    display: block;
+    margin-bottom: 8px;
+    color: #495057;
+    font-weight: bold; /* Making labels bold */
+  }
+  
+  /* Input field styling */
+  input[type="number"],
+  select {
+    width: calc(100% - 20px);
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ced4da;
+    border-radius: 6px;
+    background-color: #f8f9fa;
+  }
+  
+  /* Gender radio button styling */
+  .gender-label {
+    margin-right: 10px;
+  }
+  
+  /* Button styling */
+  button {
+    width: 100%;
+    padding: 12px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  button:hover {
+    background-color: #0056b3;
+  }

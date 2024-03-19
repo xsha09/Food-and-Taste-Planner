@@ -1,0 +1,47 @@
+#result-container {
+    margin-top: 30px;
+  }
+  
+  #result {
+    background-color: #f0f0f0; /* Light gray background */
+    padding: 30px;
+    border-radius: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+  }
+  
+  .result-heading {
+    font-size: 36px; /* Larger font size for heading */
+    margin-bottom: 20px;
+    color: #00a896; /* Teal color for heading */
+    text-align: center;
+    text-transform: uppercase; /* Uppercase text */
+  }
+  
+  .result-item {
+    margin-bottom: 30px; /* Increased spacing between items */
+  }
+  
+  .result-label {
+    font-weight: bold;
+    font-size: 24px; /* Larger font size for labels */
+    color: #333; /* Dark text color */
+  }
+  
+  .result-value {
+    font-size: 28px; /* Larger font size for values */
+    color: #00a896; /* Teal color for values */
+  }
+  
+  /* Horizontal line separator */
+  .separator {
+    border-top: 2px solid #ddd; /* Light gray color */
+    margin: 30px 0; /* Increased spacing above and below the separator */
+  }
+  
+  /* Fitness icon */
+  .fitness-icon {
+    font-size: 40px; /* Larger icon size */
+    color: #00a896; /* Teal color for icon */
+    margin-bottom: 20px; /* Spacing below the icon */
+    text-align: center; /* Center the icon */
+  }

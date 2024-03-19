@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TDEE Calculator Results</title>
+<link rel="stylesheet" type="text/css" href="/result.css">
+</head>
+<body>
+<div id="result">
+    <h2>TDEE Calculator Results</h2>
+    <div id="calories">
+        <h3>Calories:</h3>
+        <p>Calories per day: <span id="caloriesPerDay"></span></p>
+        <p>Calories per week: <span id="caloriesPerWeek"></span></p>
+    </div>
+    <div id="macronutrients">
+        <h3>Macronutrients Intake:</h3>
+        <p>Protein: <span id="protein"></span> grams per day (<span id="proteinCalories"></span> calories)</p>
+        <p>Fat: <span id="fat"></span> grams per day (<span id="fatCalories"></span> calories)</p>
+        <p>Carbohydrates: <span id="carbs"></span> grams per day (<span id="carbCalories"></span> calories)</p>
+    </div>
+    <div id="bmi">
+        <h3>BMI:</h3>
+        <p>Your BMI is: <span id="bmiValue"></span></p>
+    </div>
+    <div id="idealWeight">
+        <h3>Ideal Weight:</h3>
+        <p>Your ideal weight is: <span id="idealWeightValue"></span> kg</p>
+    </div>
+</div>
+
+<script>
+// Function to get URL parameters
+function getParameterByName(name) {
+    const urlParams = new URLSearchParams(window.location.search);
+    return urlParams.get(name);
+}
+
+// Function to update the results with URL parameters
+function updateResults() {
+    var caloriesPerDay = getParameterByName('caloriesPerDay');
+    var caloriesPerWeek = getParameterByName('caloriesPerWeek');
+    var protein = getParameterByName('protein');
+    var proteinCalories = parseFloat(protein * 4).toFixed(1);
+    var fat = getParameterByName('fat');
+    var fatCalories = parseFloat(fat * 9).toFixed(1);
+    var carbs = getParameterByName('carbs');
+    var carbCalories = parseFloat(carbs * 4).toFixed(1);
+    var bmi = getParameterByName('bmi');
+    var idealWeight = getParameterByName('idealWeight');
+
+    document.getElementById('caloriesPerDay').textContent = caloriesPerDay;
+    document.getElementById('caloriesPerWeek').textContent = caloriesPerWeek;
+    document.getElementById('protein').textContent = protein;
+    document.getElementById('proteinCalories').textContent = proteinCalories;
+    document.getElementById('fat').textContent = fat;
+    document.getElementById('fatCalories').textContent = fatCalories;
+    document.getElementById('carbs').textContent = carbs;
+    document.getElementById('carbCalories').textContent = carbCalories;
+    document.getElementById('bmiValue').textContent = bmi;
+    document.getElementById('idealWeightValue').textContent = idealWeight;
+}
+
+window.onload = updateResults;
+</script>
+
+</body>
+</html>
